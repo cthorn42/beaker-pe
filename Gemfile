@@ -19,10 +19,11 @@ group :acceptance_testing do
 end
 
 if ENV['GEM_SOURCE'] =~ /artifactory\.delivery\.puppetlabs\.net/
-  gem "scooter", *location_for(ENV['SCOOTER_VERSION'] || '~> 3.0')
+  gem "scooter", *location_for(ENV['SCOOTER_VERSION'] || '~> 4.0')
 end
 
 gem 'deep_merge'
+gem 'beaker-puppet'
 
 if File.exists? "#{__FILE__}.local"
   eval(File.read("#{__FILE__}.local"), binding)
