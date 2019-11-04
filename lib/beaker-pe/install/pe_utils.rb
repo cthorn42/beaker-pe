@@ -709,6 +709,9 @@ module Beaker
               #Platform9
               on host, "iptables -A OUTPUT -p tcp -d 10.234.0.0/16 -j ACCEPT"
 
+              #Local network
+              on host, "iptables -A OUTPUT -p tcp -d 10.0.25.0/16 -j ACCEPT"
+
               on host, "iptables -A OUTPUT -p tcp --dport 3128 -d #{@proxy_hostname} -j ACCEPT"
               on host, "iptables -P OUTPUT DROP"
               # Verify we can reach osmirror via the proxy
